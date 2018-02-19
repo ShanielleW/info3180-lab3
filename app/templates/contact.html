@@ -1,0 +1,35 @@
+% extends 'base.html' %}
+
+{% block main %}
+<h2>Contact Form</h2>
+<hr id="title_sep">
+<form action="{{url_for('contact')}}" method="POST">
+    {{ form.csrf_token }}
+    <div>
+        <span>Questions? Fill out the form below</span>
+    </div>
+    <div class="col">
+        <label for="name">{{Contact.u_name.label}} <span class="required">(Required)</span></label>
+        <span class ="blk">Name: </span>
+        {{Contact.u_name}}
+    </div>
+    <div class="col">
+        <label for="email">{{Contact.u_email.label}} <span class="required">(Required)</span></label>
+        <span class ="blk" >Email address: </span>
+        {{Contact.u_email}}
+    </div>
+    <div class="col">
+        <label for="subject">{{Contact.e_subject.label}} <span class="required">(Required)</span></label>
+        <span class ="blk">Message Subject: </span>
+        {{Contact.e_subject}}
+    </div>
+    <div class="col">
+        <label for="message">{{Contact.e_message.label}} <span class="required">(Required)</span></label>
+        <span class ="blk" >Message: </span>
+        {{Contact.e_message}}
+    </div>
+    <div>
+        <input type="submit" value="Send Message" id="send-btn"/>
+    </div>
+</form>
+{% endblock %}
